@@ -1,5 +1,8 @@
+use crate::config::config::Config;
+
+mod config;
 
 #[tokio::main]
 async fn main() {
-    println!("Hello, world!");
+    let config = Config::read_from_file().await;
 }
