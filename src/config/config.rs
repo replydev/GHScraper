@@ -13,8 +13,14 @@ pub struct Config {
     /// Config version
     version: u16,
 
+    /// Name of the organization to scrape
+    pub organization: String,
+
     /// Github token used to query and clone available Github repositories
     pub gh_token: String,
+
+    /// Max requests
+    pub max_requests: Option<u16>,
 }
 
 impl Config {
