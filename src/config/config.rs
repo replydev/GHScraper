@@ -18,6 +18,7 @@ pub struct Config {
 }
 
 impl Config {
+    /// Read config from the path defined in the GH_SCRAPER_CONFIG_PATH env variable or the default folder.
     pub async fn read_from_file() -> Self {
         let mut file = File::open(config_path())
             .await
