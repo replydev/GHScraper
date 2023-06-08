@@ -21,6 +21,15 @@ pub struct Config {
 
     /// Max requests
     pub max_requests: Option<u16>,
+
+    /// Path of downloaded repositories
+    pub download_path: Option<String>,
+
+    /// Username for Github Authentication
+    pub gh_username: String,
+
+    /// Password for Github Authentication
+    gh_password: Option<String>,
 }
 
 impl Config {
@@ -36,6 +45,13 @@ impl Config {
             .expect("Cannot read config file");
 
         parse_config_content(&file_content)
+    }
+
+    /// Get Github Password for repo cloning / pulling. Use gh_token if gh_password is missing
+    pub fn gh_password(&self) -> &str {
+        self.gh_password
+            .as_ref()
+            .map_or(self.gh_token.as_str(), |v| v.as_str())
     }
 }
 

@@ -4,5 +4,6 @@ use serde::{Deserialize, Serialize};
 #[derive(Serialize, Deserialize)]
 pub struct GhRepository {
     id: u64,
-    clone_url: String,
+    pub name: String,
+    pub clone_url: String,
 }

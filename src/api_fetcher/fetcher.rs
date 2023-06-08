@@ -1,5 +1,3 @@
-use std::slice::RSplit;
-
 use reqwest::{
     header::{HeaderMap, HeaderValue},
     Client,
